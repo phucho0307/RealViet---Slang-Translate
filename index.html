@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vietnamese Club ✦ Knox College</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;600;700;800;900&family=Roboto:wght@400;500;700;900&family=Noto+Sans:wght@400;600;700;800;900&family=Bungee&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="bg-animation"></div>
+    <div class="particles"></div>
+
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-brand">RealViet</div>
+        <div class="nav-links">
+            <a href="home.html" class="nav-link">Home</a>
+            <a href="index.html" class="nav-link active">Slang Translate</a>
+            <a href="greetings.html" class="nav-link">Real Greeting</a>
+            <a href="contact.html" class="nav-link">Contact Info</a>
+        </div>
+    </nav>
+
+    <!-- Slogan Pop-up -->
+    <!-- <div class="slogan-container">
+        <div class="slogan slogan-main">
+            <div class="slogan-content">SLANG IN VIETNAMESE</div>
+        </div>
+    </div> -->
+
+    <header>
+        <div class="header-images">
+            <img src="image/knoxlogo.png" alt="Knox College Logo" class="knox-logo-decor">
+            <img class="logo" src="image/vneseclubknoxcollege.png" alt="Vietnamese Club Logo">
+        </div>
+        <h1 class="fade-in glitch" data-text="Vietnamese Club • Knox College">REAL SLANG TRANSLATE</h1>
+        <p class="subtitle fade-in">no cap, we gotchu with the translations fr </p>
+    </header>
+
+    <div class="card slide-up">
+        <div class="search-bar">
+            <input id="wordInput" type="text" placeholder="drop a word... I'll translate it for you 👀">
+            <button onclick="translateWord()" class="glow-btn">
+                <span>translate</span>
+            </button>
+        </div>
+
+        <div class="result" id="resultBox">
+            <span class="result-placeholder">put in a slang - tui sẽ dịch cho ae!</span>
+        </div>
+    </div>
+
+
+    <footer>
+        <p>built with by Phuc Ho from Knox College</p>
+        <p class="footer-sub">vibe check</p>
+    </footer>
+
+    <script>
+        const dictionary = {
+            // Original words
+            "sensor": "cảm biến",
+            "awkward": "ngại ngùng / kỳ kỳ",
+            "goofy": "ngố ngố",
+            "slay": "xuất sắc / đỉnh của chóp",
+            "sus": "đáng nghi / mùi mùi",
+            "vibe": "không khí / cảm giác",
+            "weird": "kỳ lạ",
+            "nerd": "mọt sách",
+
+            // 1-2 syllable slangs
+            "vl": "very, damn",
+            "vcl": "very, damn",
+            "đỉnh": "awesome",
+            "xịn": "high quality, cool",
+            "ngu": "dumb (joking)",
+            "lú": "confused",
+            "hề": "funny, clown",
+            "mlem": "cute, yummy",
+            "quạo": "mad",
+            "xỉu": "fainting from cuteness",
+            "chill": "relaxed",
+            "flex": "show off",
+            "tạch": "fail",
+            "phèn": "lame, uncool",
+            "say": "crush hard",
+            "xịn sò": "very cool",
+            "gắt": "intense",
+            "toxic": "bad/negative",
+            "phốt": "scandal",
+            "đú": "follow trend",
+            "gánh": "carry the team",
+            "cân": "handle it, deal with it",
+
+            // Silly/Funny Slangs
+            "chúa hề": "ultimate clown",
+            "óc chó": "dumbass (joking with friends)",
+            "mất não": "brain-dead moment",
+            "căng": "stressful",
+            "nghèo": "broke (joking)",
+            "nổ": "brag too much",
+
+            // Love/Crush Slangs
+            "thính": "flirt bait",
+            "thả thính": "flirting",
+            "dính": "fall for someone",
+            "quắn quéo": "too cute",
+            "êu": "simping",
+            "u mê": "obsessed",
+
+            // School Slangs
+            "đu deadline": "chasing deadline",
+            "quay cóp": "cheating",
+            "tạch môn": "fail a subject",
+            "bùng": "skip class",
+            "gà": "noob",
+            // New entries from comments
+            "fr": "thiệt / thật luôn",
+            "cap": "xạo",
+            "no cap": "không xạo, thật mà",
+            "bet": "chơi luôn / ok luôn",
+            "rizz": "thả thính",
+            "sigma": "boy kul ngầu",
+            "gyatt": "em đích bự",
+            "fanum tax": "bị bạn bè “trấn lột đồ ăn”",
+            "mid": "thường thường / trung bình",
+            "fire": "chất / đỉnh / phê",
+            "goated": "đỉnh kout / best luôn",
+            "bruh": "trời? / vl",
+            "lowkey": "kiểu bí mật / hơi hơi",
+            "highkey": "rõ ràng luôn / lộ liễu",
+            "ate": "đỉnh quá",
+            "valid": "chuẩn / hợp lý",
+            "skibidi": "nhảm nhí (meme)",
+            "based": "không sợ ai",
+            "ratio": "“áp đảo” / thua (trên mạng)",
+            "yeet": "quăng / ném mạnh",
+            "simp": "simp / mê gái / mê trai",
+            "bussin": "ngon cực / ngon vl",
+            "oop": "ối / ui / hù",
+            "stan": "fan cuồng",
+            "drip": "chất đấy",
+            "hits different": "phê quá",
+            "delulu": "bớt ảo tưởng đi má",
+            "NPC": "người nhạt nhẽo",
+            "W": "win / thắng",
+            "L": "thua / fail",
+            "touch grass": "bớt online đi",
+            "bae": "người yêu / bé yêu",
+            "ship": "đẩy thuyền",
+            "situationship": "mập mờ / trên tình bạn dưới tình yêu",
+            "ghost": "bốc hơi / lặn mất",
+            "dry texting": "nhắn tin nhạt",
+            "ick": "tụt mood / mất cảm hứng",
+            "cuff": "yêu nhau / buộc nhau lại",
+            "thirsty": "khát tình",
+            "glow up": "lột xác",
+            "af": "vãi / vãi l",
+            "idk": "không biết",
+            "ikr": "tao biết mà / đúng hông",
+            "omg": "trời ơi",
+            "tbh": "thật lòng mà nói",
+            "fomo": "sợ bỏ lỡ",
+            "ngl": "nói thật nha",
+            "rn": "ngay bây giờ",
+            "btw": "tiện nói luôn",
+            "irl": "ngoài đời",
+            "wdym": "ý m là sao",
+            "tf": "cái gì vậy trời",
+            "lmao": "cười xỉu / cười vl",
+            "smh": "lắc đầu, bó tay",
+            "imo": "theo ý tao",
+            "idc": "tao không quan tâm"
+        };
+
+
+
+
+        // Create reverse dictionary for English -> Vietnamese
+        function createReverseDictionary() {
+            const reverseDict = {};
+            for (const [vietnamese, english] of Object.entries(dictionary)) {
+                // Handle multiple English meanings separated by commas or slashes
+                const englishMeanings = english.toLowerCase().split(/[,\/]/).map(m => m.trim());
+                englishMeanings.forEach(meaning => {
+                    // Also check for partial matches (e.g., "damn" matches "very, damn")
+                    const words = meaning.split(/\s+/);
+                    words.forEach(w => {
+                        if (w && w.length > 0) {
+                            if (!reverseDict[w]) {
+                                reverseDict[w] = [];
+                            }
+                            if (!reverseDict[w].includes(vietnamese)) {
+                                reverseDict[w].push(vietnamese);
+                            }
+                        }
+                    });
+                    // Also add the full phrase
+                    if (meaning && meaning.length > 0) {
+                        if (!reverseDict[meaning]) {
+                            reverseDict[meaning] = [];
+                        }
+                        if (!reverseDict[meaning].includes(vietnamese)) {
+                            reverseDict[meaning].push(vietnamese);
+                        }
+                    }
+                });
+            }
+            return reverseDict;
+        }
+
+        const reverseDictionary = createReverseDictionary();
+
+        function translateWord() {
+            const word = document.getElementById("wordInput").value.trim().toLowerCase();
+            const result = document.getElementById("resultBox");
+
+            result.classList.remove("pop");
+            void result.offsetWidth;
+            result.classList.add("pop");
+
+            if (!word) {
+                result.innerHTML = `<span class="error-text">yo, drop a word first! 🗣️</span>`;
+                return;
+            }
+
+            // Check Vietnamese -> English (original direction)
+            if (dictionary[word]) {
+                result.innerHTML = `<span class="word-english">${word}</span> <span class="arrow">→</span> <span class="word-vietnamese">${dictionary[word]}</span>`;
+                return;
+            }
+
+            // Check English -> Vietnamese (reverse direction)
+            if (reverseDictionary[word]) {
+                const vietnameseWords = reverseDictionary[word];
+                const displayText = vietnameseWords.length === 1
+                    ? vietnameseWords[0]
+                    : vietnameseWords.join(' / ');
+                result.innerHTML = `<span class="word-english">${word}</span> <span class="arrow">→</span> <span class="word-vietnamese">${displayText}</span>`;
+                return;
+            }
+
+            // No match found
+            result.innerHTML = `<span class="not-found">we don't have this word yet... but we can translate it for you!</span><br><br><span class="word-english">${word}</span>`;
+        }
+
+        // Add Enter key support
+        document.getElementById("wordInput").addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                translateWord();
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact ✦ RealViet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;600;700;800;900&family=Roboto:wght@400;500;700;900&family=Noto+Sans:wght@400;600;700;800;900&family=Bungee&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="bg-animation"></div>
+    <div class="particles"></div>
+
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-brand">RealViet</div>
+        <div class="nav-links">
+            <a href="home.html" class="nav-link">Home</a>
+            <a href="index.html" class="nav-link">Slang Translate</a>
+            <a href="greetings.html" class="nav-link">Real Greeting</a>
+            <a href="contact.html" class="nav-link active">Contact Info</a>
+        </div>
+    </nav>
+
+    <header>
+        <div class="header-images">
+            <img src="image/knoxlogo.png" alt="Knox College Logo" class="knox-logo-decor">
+            <img class="logo" src="image/vneseclubknoxcollege.png" alt="Vietnamese Club Logo">
+        </div>
+        <h1 class="fade-in glitch" data-text="Contact Us">CONTACT US</h1>
+        <p class="subtitle fade-in">drop us a line, we'd love to hear from you! 💬</p>
+    </header>
+
+    <div class="card slide-up">
+        <div class="contact-container">
+            <div class="instagram-section">
+                <h2 class="section-title">Follow Us on Instagram</h2>
+                <a href="https://www.instagram.com/vietnameseclub_knoxcollege/" target="_blank"
+                    rel="noopener noreferrer" class="instagram-link">
+                    <span class="ig-icon">📷</span>
+                    <span class="ig-handle">@vietnameseclub_knoxcollege</span>
+                    <span class="ig-arrow">→</span>
+                </a>
+                <p class="ig-description">Check out our latest posts, events, and Vietnamese culture content!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card slide-up">
+        <div class="comment-form-container">
+            <h2 class="section-title">Share Your Thoughts</h2>
+            <p class="form-description">Got feedback, suggestions, or just want to say hi? Drop a comment below!</p>
+
+            <form id="commentForm" class="comment-form">
+                <div class="form-group">
+                    <label for="igUsername" class="form-label">Your Instagram Username</label>
+                    <input type="text" id="igUsername" name="igUsername" class="form-input" placeholder="@yourusername"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="comment" class="form-label">Your Comment / Opinion</label>
+                    <textarea id="comment" name="comment" class="form-textarea" rows="6"
+                        placeholder="Tell us what you think... 💭" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">
+                    <span>Send Message</span>
+                </button>
+            </form>
+
+            <div id="formMessage" class="form-message"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>built with by Phuc Ho from Knox College</p>
+        <p class="footer-sub">vibe check</p>
+    </footer>
+
+    <script>
+        document.getElementById('commentForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const username = document.getElementById('igUsername').value;
+            const comment = document.getElementById('comment').value;
+            const messageDiv = document.getElementById('formMessage');
+
+            // Simple validation
+            if (!username || !comment) {
+                messageDiv.innerHTML = '<span class="error-text">Please fill in all fields! 🗣️</span>';
+                messageDiv.style.display = 'block';
+                return;
+            }
+
+            // Display success message
+            messageDiv.innerHTML = '<span class="success-text">Thanks for your feedback! We appreciate it! 🙏✨</span>';
+            messageDiv.style.display = 'block';
+            messageDiv.classList.add('pop');
+
+            // Reset form
+            document.getElementById('commentForm').reset();
+
+            // Note: In a real application, you would send this data to a server
+            // For now, we're just showing a success message
+            console.log('Comment submitted:', { username, comment });
+        });
+    </script>
+
+</body>
+
+</html>

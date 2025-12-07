@@ -13,10 +13,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="new-layout">
     <div class="bg-animation"></div>
     <div class="particles"></div>
-
 
     <!-- Top Navigation -->
     <nav class="top-nav">
@@ -29,61 +28,63 @@
         </div>
     </nav>
 
-    <header>
-        <div class="header-images">
-            <img src="image/knoxlogo.png" alt="Knox College Logo" class="knox-logo-decor">
-            <img class="logo" src="image/vneseclubknoxcollege.png" alt="Vietnamese Club Logo">
-        </div>
-        <h1 class="fade-in glitch" data-text="Contact Us">CONTACT US</h1>
-        <p class="subtitle fade-in">drop us a line, we'd love to hear from you! 💬</p>
-    </header>
+    <!-- Bottom Section with Content and Images -->
+    <div class="bottom-content-section">
+        <div class="left-content-panel">
+            <div class="content-text-box">
+                <h2 class="main-heading">Real Vietnamese</h2>
+                <p class="sub-heading">Connect with us and share your thoughts</p>
+                
+                <div class="content-cards">
+                    <div class="card slide-up">
+                        <div class="contact-container">
+                            <div class="instagram-section">
+                                <h2 class="section-title">Follow Us on Instagram</h2>
+                                <a href="https://www.instagram.com/vietnameseclub_knoxcollege/" target="_blank"
+                                    rel="noopener noreferrer" class="instagram-link">
+                                    <span class="ig-icon">📷</span>
+                                    <span class="ig-handle">@vietnameseclub_knoxcollege</span>
+                                    <span class="ig-arrow">→</span>
+                                </a>
+                                <p class="ig-description">Check out our latest posts, events, and Vietnamese culture content!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
 
-    <div class="card slide-up">
-        <div class="contact-container">
-            <div class="instagram-section">
-                <h2 class="section-title">Follow Us on Instagram</h2>
-                <a href="https://www.instagram.com/vietnameseclub_knoxcollege/" target="_blank"
-                    rel="noopener noreferrer" class="instagram-link">
-                    <span class="ig-icon">📷</span>
-                    <span class="ig-handle">@vietnameseclub_knoxcollege</span>
-                    <span class="ig-arrow">→</span>
-                </a>
-                <p class="ig-description">Check out our latest posts, events, and Vietnamese culture content!</p>
+                    <div class="card slide-up">
+                        <div class="comment-form-container">
+                            <h2 class="section-title">Share Your Thoughts</h2>
+                            <p class="form-description">Got feedback, suggestions, or just want to say hi? Drop a comment below!
+                            </p>
+
+                            <form id="commentForm" class="comment-form">
+                                <div class="form-group">
+                                    <label for="igUsername" class="form-label">Your Instagram Username</label>
+                                    <input type="text" id="igUsername" name="igUsername" class="form-input"
+                                        placeholder="@yourusername" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="comment" class="form-label">Your Comment / Opinion</label>
+                                    <textarea id="comment" name="comment" class="form-textarea" rows="6"
+                                        placeholder="Tell us what you think... 💭" required></textarea>
+                                </div>
+
+                                <button type="submit" class="submit-button">Send Message</button>
+                            </form>
+
+                            <div id="formMessage" class="form-message"> </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </div>
-
-    <div class="card slide-up">
-        <div class="comment-form-container">
-            <h2 class="section-title">Share Your Thoughts</h2>
-            <p class="form-description">Got feedback, suggestions, or just want to say hi? Drop a comment below!</p>
-
-            <form id="commentForm" class="comment-form">
-                <div class="form-group">
-                    <label for="igUsername" class="form-label">Your Instagram Username</label>
-                    <input type="text" id="igUsername" name="igUsername" class="form-input" placeholder="@yourusername"
-                        required>
-                </div>
-
-                <div class="form-group">
-                    <label for="comment" class="form-label">Your Comment / Opinion</label>
-                    <textarea id="comment" name="comment" class="form-textarea" rows="6"
-                        placeholder="Tell us what you think... 💭" required></textarea>
-                </div>
-
-                <button type="submit" class="submit-button">
-                    <span>Send Message</span>
-                </button>
-            </form>
-
-            <div id="formMessage" class="form-message"></div>
+        <div class="right-image-panel">
+            <img src="image/bg2.jfif" alt="Background 2" class="main-feature-image">
         </div>
     </div>
-
-    <footer>
-        <p>built with by Phuc Ho from Knox College</p>
-        <p class="footer-sub">vibe check</p>
-    </footer>
 
     <script>
         document.getElementById('commentForm').addEventListener('submit', function (e) {
@@ -113,6 +114,10 @@
             console.log('Comment submitted:', { username, comment });
         });
     </script>
+
+    <footer>
+        <p>built by Phuc Ho from Knox College</p>
+    </footer>
 
 </body>
 

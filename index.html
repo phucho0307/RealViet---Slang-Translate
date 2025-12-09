@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vietnamese Club ✦ Knox College</title>
+    <title>RealViet ✦ Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -13,439 +13,42 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="new-layout">
-    <div class="bg-animation"></div>
-    <div class="particles"></div>
-
+<body class="home-page">
     <!-- Top Navigation -->
     <nav class="top-nav">
         <div class="nav-brand">RealViet</div>
         <div class="nav-links">
-            <a href="home.html" class="nav-link">Home</a>
-            <a href="index.html" class="nav-link active">Slang Translate</a>
+            <a href="home.html" class="nav-link active">Home</a>
+            <a href="index.html" class="nav-link">Slang Translate</a>
             <a href="greetings.html" class="nav-link">Real Greeting</a>
             <a href="contact.html" class="nav-link">Contact Info</a>
         </div>
     </nav>
 
-    <!-- Bottom Section with Content and Images -->
-    <div class="bottom-content-section">
-        <div class="left-content-panel">
-            <div class="content-text-box">
-                <h2 class="main-heading">Real Vietnamese</h2>
-                <p class="sub-heading">Authentic translations and greetings for everyday conversations</p>
+    <div class="home-container">
+        <!-- Left Content Panel -->
+        <div class="home-content-panel">
+            <div class="home-content">
+                <div class="home-logos">
+                    <img src="image/vneseclubknoxcollege.png" alt="Vietnamese Club Logo"
+                        class="home-logo vneseclub-logo">
+                    <img src="image/knoxlogo.png" alt="Knox College Logo" class="home-logo knox-logo">
+                </div>
+                <h1 class="home-headline">REALVIET from Vietnamese Club x Knox College</h1>
+                <p class="home-subheadline">Get real Vietnamese with authentic translations and greetings.</p>
 
-                <div class="content-cards">
-                    <div class="card slide-up">
-                        <div class="search-bar">
-                            <input id="wordInput" type="text" placeholder="drop a word... I'll translate it for you 👀">
-                            <button onclick="translateWord()" class="glow-btn">translate</button>
-                        </div>
-
-                        <div class="result" id="resultBox">
-                            <span class="result-placeholder">put in a slang - tui sẽ dịch cho ae!</span>
-                        </div>
-                    </div>
+                <div class="home-buttons">
+                    <a href="index.html" class="home-btn-primary">Get Started</a>
+                    <a href="contact.html" class="home-btn-secondary">Let's Talk</a>
                 </div>
             </div>
         </div>
-        <div class="right-image-panel">
-            <img src="image/canhdong.jpg" alt="Canh dong" class="main-feature-image">
+
+        <!-- Right Background Image -->
+        <div class="home-image-panel">
+            <div class="home-image-overlay"></div>
         </div>
     </div>
-
-
-    <footer>
-        <p>built by Phuc Ho from Knox College</p>
-    </footer>
-
-    <script>
-        const dictionary = {
-            "sensor": "cảm biến",
-            "awkward": "ngại ngùng / kỳ kỳ",
-            "goofy": "ngố ngố",
-            "slay": "xuất sắc / đỉnh của chóp",
-            "sus": "đáng nghi / mùi mùi",
-            "vibe": "không khí / cảm giác",
-            "weird": "kỳ lạ",
-            "nerd": "mọt sách",
-            "lit": "vui / hay ho",
-            "bruh": "anh bạn ơi",
-            "cap": "nói dối / không đúng",
-            "no cap": "không nói dối / thật đấy",
-            "lowkey": "bí mật / âm thầm",
-            "highkey": "công khai / rõ ràng",
-            "salty": "bực mình / cay cú",
-            "ghost": "biến mất / không trả lời",
-            "flex": "khoe khoang",
-            "stan": "fan cuồng",
-            "simp": "tỏ tình quá mức",
-            "periodt": "chấm hết / đúng vậy",
-            "tea": "tin tức / drama",
-            "spill the tea": "kể chuyện / tiết lộ",
-            "slay": "làm tốt / xuất sắc",
-            "bet": "đồng ý / ok",
-            "fr": "for real - thật đấy",
-            "idk": "I don't know - tôi không biết",
-            "imo": "in my opinion - theo ý kiến của tôi",
-            "tbh": "to be honest - thật ra",
-            "ngl": "not gonna lie - không nói dối",
-            "wyd": "what you doing - đang làm gì",
-            "wym": "what you mean - ý bạn là gì",
-            "lol": "laugh out loud - cười",
-            "omg": "oh my god - trời ơi",
-            "wtf": "what the f*** - cái gì thế",
-            "ily": "I love you - tôi yêu bạn",
-            "ily2": "I love you too - tôi cũng yêu bạn",
-            "ily3": "I love you three - tôi yêu bạn ba",
-            "ily4": "I love you four - tôi yêu bạn bốn",
-            "ily5": "I love you five - tôi yêu bạn năm",
-            "smh": "shaking my head - lắc đầu",
-            "rip": "rest in peace - an nghỉ",
-            "fyi": "for your information - để bạn biết",
-            "asap": "as soon as possible - càng sớm càng tốt",
-            "ttyl": "talk to you later - nói chuyện sau",
-            "brb": "be right back - quay lại ngay",
-            "gtg": "got to go - phải đi",
-            "tmi": "too much information - quá nhiều thông tin",
-            "fomo": "fear of missing out - sợ bỏ lỡ",
-            "yolo": "you only live once - bạn chỉ sống một lần",
-            "fomo": "fear of missing out - sợ bỏ lỡ cơ hội",
-            "goat": "greatest of all time - vĩ đại nhất",
-            "op": "overpowered - quá mạnh",
-            "nerf": "làm yếu đi",
-            "buff": "làm mạnh lên",
-            "noob": "người mới / kém",
-            "pro": "chuyên nghiệp",
-            "gg": "good game - game hay",
-            "wp": "well played - chơi tốt",
-            "gl": "good luck - chúc may mắn",
-            "hf": "have fun - vui vẻ",
-            "afk": "away from keyboard - không ở đây",
-            "irl": "in real life - ngoài đời",
-            "irl": "in real life - đời thật",
-            "dms": "direct messages - tin nhắn riêng",
-            "dms": "direct messages - nhắn tin",
-            "ship": "ủng hộ cặp đôi",
-            "otp": "one true pairing - cặp đôi đích thực",
-            "canon": "chính thức",
-            "fanon": "không chính thức",
-            "headcanon": "giả định cá nhân",
-            "au": "alternate universe - vũ trụ thay thế",
-            "oc": "original character - nhân vật gốc",
-            "meme": "ảnh chế / trào phúng",
-            "vibe check": "kiểm tra cảm xúc",
-            "big mood": "tâm trạng lớn",
-            "same": "giống vậy",
-            "mood": "tâm trạng",
-            "relatable": "có thể liên quan",
-            "facts": "sự thật",
-            "no facts": "không đúng",
-            "facts only": "chỉ sự thật",
-            "period": "chấm hết",
-            "periodt": "chấm hết (nhấn mạnh)",
-            "say less": "nói ít thôi",
-            "say more": "nói thêm đi",
-            "say sike": "nói đùa à",
-            "sike": "đùa thôi",
-            "jokes": "đùa thôi",
-            "jk": "just kidding - đùa thôi",
-            "jks": "jokes - đùa",
-            "dead": "chết / cười chết",
-            "ded": "dead - chết",
-            "deceased": "đã chết",
-            "rip": "rest in peace - an nghỉ",
-            "f": "press f to pay respects - ấn f để tưởng nhớ",
-            "press f": "ấn f",
-            "oof": "tiếng kêu khi đau",
-            "ouch": "ối / đau",
-            "yikes": "ồ",
-            "yike": "ồ",
-            "big yikes": "ồ to",
-            "cringe": "ngượng / khó chịu",
-            "cringey": "ngượng ngùng",
-            "cringy": "ngượng ngùng",
-            "based": "dựa trên",
-            "based and redpilled": "dựa trên và thức tỉnh",
-            "redpilled": "thức tỉnh",
-            "bluepilled": "chưa thức tỉnh",
-            "woke": "thức tỉnh",
-            "cancel": "tẩy chay",
-            "cancelled": "bị tẩy chay",
-            "clout": "ảnh hưởng",
-            "clout chaser": "người chạy theo ảnh hưởng",
-            "hater": "người ghét",
-            "hate": "ghét",
-            "love": "yêu",
-            "hate to love": "ghét đến yêu",
-            "love to hate": "yêu đến ghét",
-            "icon": "biểu tượng",
-            "iconic": "biểu tượng",
-            "legend": "huyền thoại",
-            "legendary": "huyền thoại",
-            "queen": "nữ hoàng",
-            "king": "vua",
-            "slay queen": "nữ hoàng xuất sắc",
-            "slay king": "vua xuất sắc",
-            "serve": "phục vụ / thể hiện",
-            "serving": "đang thể hiện",
-            "served": "đã thể hiện",
-            "ate": "ăn / làm tốt",
-            "ate and left no crumbs": "ăn và không để lại mảnh vụn",
-            "snatched": "bắt được / tuyệt",
-            "snatch": "bắt",
-            "snatching": "đang bắt",
-            "wig": "tóc giả",
-            "wig snatched": "tóc giả bị bắt",
-            "wig flew": "tóc giả bay",
-            "wig gone": "tóc giả biến mất",
-            "periodt": "chấm hết",
-            "and that's on period": "và đó là chấm hết",
-            "periodt ah periodt": "chấm hết à chấm hết",
-            "no printer": "không máy in",
-            "just fax": "chỉ fax",
-            "fax": "fax / đúng",
-            "facts": "sự thật",
-            "no printer just fax": "không máy in chỉ fax",
-            "facts no printer": "sự thật không máy in",
-            "big facts": "sự thật lớn",
-            "straight facts": "sự thật thẳng",
-            "pure facts": "sự thật thuần",
-            "facts only": "chỉ sự thật",
-            "period facts": "chấm hết sự thật",
-            "periodt facts": "chấm hết sự thật",
-            "and that's a fact": "và đó là sự thật",
-            "that's a fact": "đó là sự thật",
-            "factual": "thực tế",
-            "100": "một trăm phần trăm",
-            "hundred": "trăm",
-            "percent": "phần trăm",
-            "one hundred": "một trăm",
-            "one hunnid": "một trăm (slang)",
-            "hunnid": "trăm (slang)",
-            "hunned": "trăm (slang)",
-            "fr fr": "for real for real - thật đấy thật đấy",
-            "fr": "for real - thật đấy",
-            "for real": "thật đấy",
-            "real talk": "nói thật",
-            "real": "thật",
-            "really": "thật sự",
-            "reality": "thực tế",
-            "realistic": "thực tế",
-            "unreal": "không thực",
-            "surreal": "siêu thực",
-            "genuine": "chân thật",
-            "authentic": "xác thực",
-            "legit": "hợp pháp / thật",
-            "legitimately": "hợp pháp",
-            "legitimate": "hợp pháp",
-            "illegitimate": "bất hợp pháp",
-            "valid": "hợp lệ",
-            "validate": "xác nhận",
-            "validation": "xác nhận",
-            "invalid": "không hợp lệ",
-            "void": "vô hiệu",
-            "null": "không",
-            "true": "đúng",
-            "truth": "sự thật",
-            "truthful": "thành thật",
-            "truthfully": "thành thật",
-            "false": "sai",
-            "falsify": "làm giả",
-            "fake": "giả",
-            "faker": "người giả",
-            "phony": "giả",
-            "fraud": "gian lận",
-            "fraudulent": "gian lận",
-            "scam": "lừa đảo",
-            "scammer": "kẻ lừa đảo",
-            "scamming": "đang lừa đảo",
-            "scammed": "bị lừa đảo",
-            "cap": "nói dối",
-            "capper": "người nói dối",
-            "capping": "đang nói dối",
-            "capped": "đã nói dối",
-            "no cap": "không nói dối",
-            "cap detected": "phát hiện nói dối",
-            "that's cap": "đó là nói dối",
-            "capping hard": "nói dối nhiều",
-            "stop capping": "dừng nói dối",
-            "uncap": "không nói dối",
-            "uncapped": "không nói dối",
-            "honest": "thành thật",
-            "honesty": "sự thành thật",
-            "honestly": "thành thật",
-            "dishonest": "không thành thật",
-            "dishonesty": "sự không thành thật",
-            "lie": "nói dối",
-            "liar": "kẻ nói dối",
-            "lying": "đang nói dối",
-            "lied": "đã nói dối",
-            "white lie": "lời nói dối vô hại",
-            "bold faced lie": "lời nói dối trắng trợn",
-            "straight up lie": "lời nói dối thẳng",
-            "big lie": "lời nói dối lớn",
-            "little lie": "lời nói dối nhỏ",
-            "lie detector": "máy phát hiện nói dối",
-            "detect lies": "phát hiện nói dối",
-            "catch lies": "bắt nói dối",
-            "expose lies": "vạch trần nói dối",
-            "reveal lies": "tiết lộ nói dối",
-            "uncover lies": "khám phá nói dối",
-            "truth or dare": "sự thật hay thách thức",
-            "dare": "thách thức",
-            "truth": "sự thật",
-            "challenge": "thách thức",
-            "challenging": "thách thức",
-            "challenged": "bị thách thức",
-            "daring": "dũng cảm",
-            "dared": "đã thách thức",
-            "double dare": "thách thức kép",
-            "triple dare": "thách thức ba",
-            "dare you": "thách bạn",
-            "i dare you": "tôi thách bạn",
-            "you dare me": "bạn thách tôi",
-            "how dare you": "sao bạn dám",
-            "how dare": "sao dám",
-            "dare not": "không dám",
-            "daren't": "không dám",
-            "don't you dare": "đừng dám",
-            "don't dare": "đừng dám",
-            "dare say": "dám nói",
-            "daresay": "dám nói",
-            "i daresay": "tôi dám nói",
-            "daresay not": "không dám nói",
-            "bold": "táo bạo",
-            "boldly": "táo bạo",
-            "boldness": "sự táo bạo",
-            "bold face": "mặt táo bạo",
-            "boldfaced": "mặt táo bạo",
-            "bold faced": "mặt táo bạo",
-            "brave": "dũng cảm",
-            "bravely": "dũng cảm",
-            "bravery": "lòng dũng cảm",
-            "braveness": "sự dũng cảm",
-            "courage": "can đảm",
-            "courageous": "can đảm",
-            "courageously": "can đảm",
-            "courageousness": "sự can đảm",
-            "fearless": "không sợ",
-            "fearlessly": "không sợ",
-            "fearlessness": "sự không sợ",
-            "fear": "sợ",
-            "fearful": "sợ hãi",
-            "fearfully": "sợ hãi",
-            "fearfulness": "sự sợ hãi",
-            "afraid": "sợ",
-            "scared": "sợ",
-            "scary": "đáng sợ",
-            "scare": "làm sợ",
-            "scaredy cat": "người nhút nhát",
-            "scaredy": "nhút nhát",
-            "fraidy cat": "người nhút nhát",
-            "fraidy": "nhút nhát",
-            "chicken": "gà / nhút nhát",
-            "chicken out": "rút lui vì sợ",
-            "chickened out": "đã rút lui vì sợ",
-            "chickening out": "đang rút lui vì sợ",
-            "wimp": "người yếu đuối",
-            "wimpy": "yếu đuối",
-            "wimp out": "rút lui vì yếu",
-            "wimped out": "đã rút lui vì yếu",
-            "wimping out": "đang rút lui vì yếu",
-            "weak": "yếu",
-            "weakly": "yếu",
-            "weakness": "điểm yếu",
-            "weaknesses": "các điểm yếu",
-            "weakling": "người yếu đuối",
-            "weaken": "làm yếu",
-            "weakened": "đã làm yếu",
-            "weakening": "đang làm yếu",
-            "weakens": "làm yếu",
-            "weaker": "yếu hơn",
-            "weakest": "yếu nhất",
-            "strong": "mạnh",
-            "strongly": "mạnh",
-            "strength": "sức mạnh",
-            "strengths": "các điểm mạnh",
-            "strengthen": "làm mạnh",
-            "strengthened": "đã làm mạnh",
-            "strengthening": "đang làm mạnh",
-            "strengthens": "làm mạnh",
-            "stronger": "mạnh hơn",
-            "strongest": "mạnh nhất",
-            "power": "sức mạnh",
-            "powerful": "mạnh mẽ",
-            "powerfully": "mạnh mẽ",
-            "powerfulness": "sự mạnh mẽ",
-            "powerless": "không có sức mạnh",
-            "powerlessly": "không có sức mạnh",
-            "powerlessness": "sự không có sức mạnh",
-            "empower": "trao quyền",
-            "empowered": "đã trao quyền",
-            "empowering": "đang trao quyền",
-            "empowers": "trao quyền",
-            "empowerment": "sự trao quyền",
-            "disempower": "tước quyền",
-            "disempowered": "đã tước quyền",
-            "disempowering": "đang tước quyền",
-            "disempowers": "tước quyền",
-            "disempowerment": "sự tước quyền",
-            "might": "sức mạnh",
-            "mighty": "hùng mạnh",
-            "mightily": "hùng mạnh",
-            "mightiness": "sự hùng mạnh",
-            "almighty": "toàn năng",
-            "force": "lực lượng",
-            "forced": "bị ép buộc",
-            "forcing": "đang ép buộc",
-            "forces": "ép buộc",
-            "forceful": "mạnh mẽ",
-            "forcefully": "mạnh mẽ",
-            "forcefulness": "sự mạnh mẽ",
-            "enforce": "thi hành",
-            "enforced": "đã thi hành",
-            "enforcing": "đang thi hành",
-            "enforces": "thi hành",
-            "enforcement": "sự thi hành",
-            "reinforce": "củng cố",
-            "reinforced": "đã củng cố",
-            "reinforcing": "đang củng cố",
-            "reinforces": "củng cố",
-            "reinforcement": "sự củng cố",
-            "reinforcements": "quân tiếp viện"
-        };
-
-        function translateWord() {
-            const word = document.getElementById("wordInput").value.trim().toLowerCase();
-            const result = document.getElementById("resultBox");
-
-            if (!word) {
-                result.innerHTML = '<span class="result-placeholder">put in a slang - tui sẽ dịch cho ae!</span>';
-                return;
-            }
-
-            result.classList.remove("pop");
-            void result.offsetWidth;
-            result.classList.add("pop");
-
-            if (dictionary[word]) {
-                result.innerHTML = `<span class="word-english">${word}</span> <span class="arrow">→</span> <span class="word-vietnamese">${dictionary[word]}</span>`;
-            } else {
-                result.innerHTML = `<span class="not-found">we don't have this word yet... but we can translate it for you!</span><br><br><span class="word-english">${word}</span>`;
-            }
-        }
-
-        // Allow Enter key to trigger translation
-        document.addEventListener('DOMContentLoaded', function () {
-            const input = document.getElementById('wordInput');
-            input.addEventListener('keypress', function (e) {
-                if (e.key === 'Enter') {
-                    translateWord();
-                }
-            });
-        });
-    </script>
 
 </body>
 
